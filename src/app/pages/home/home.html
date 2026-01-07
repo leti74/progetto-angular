@@ -1,0 +1,15 @@
+<div class="max-w-7xl mx-auto px-6 py-2 space-y-6">
+    <h1 class="text-center text-3xl font-bold text-slate-900">
+        Fruits 🍎
+    </h1>
+
+    @if (fruits$ | async; as fruits) {
+    @if (fruits.length > 0) {
+    <app-fruit-list [fruits]="fruits"></app-fruit-list>
+    } @else {
+    <p class="text-center text-slate-500 py-10">
+        Nessun frutto trovato 🍏
+    </p>
+    }
+    }
+</div>

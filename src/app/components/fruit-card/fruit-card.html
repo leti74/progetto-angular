@@ -1,0 +1,26 @@
+@if (fruit) {
+<div class="bg-white rounded-xl
+             border border-slate-100
+             hover:border-emerald-200
+             shadow-sm hover:shadow-md
+             p-4 cursor-pointer
+             transition">
+    <h3 class="text-lg font-semibold text-slate-900 flex items-center gap-2">
+        <span class="truncate whitespace-nowrap overflow-hidden">{{ fruit.name }}</span>
+        <span class="text-xs font-medium text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full">
+            {{ fruit.family }}
+        </span>
+    </h3>
+
+
+
+    <div class="mt-4 flex justify-between text-sm">
+        <span class="text-slate-600">
+            🔥 {{ fruit.nutritions.calories }} kcal
+        </span>
+        <span class="text-slate-600">
+            🍬 {{ fruit.nutritions.sugar }} g
+        </span>
+    </div>
+</div>
+}

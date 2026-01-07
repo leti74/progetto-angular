@@ -25,6 +25,7 @@
               }
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ]
           },
@@ -54,6 +55,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+          "proxyConfig": "proxy.conf.json"
+           },
           "configurations": {
             "production": {
               "buildTarget": "progetto-angular:build:production"
@@ -88,5 +92,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "6534f634-ef44-4660-99be-2dcf053d14fa"
   }
 }
