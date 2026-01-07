@@ -8,6 +8,7 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-fruit-detail',
+  standalone:true,
   imports: [MatCardModule, AsyncPipe,],
   templateUrl: './fruit-detail.html',
   styleUrl: './fruit-detail.css',

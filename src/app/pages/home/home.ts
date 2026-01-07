@@ -11,6 +11,7 @@ import { FruitList } from '../../components/fruit-list/fruit-list';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [FruitCard, MatGridListModule, AsyncPipe,  FruitList],
   templateUrl: './home.html',
   styleUrl: './home.css',
@@ -26,3 +27,4 @@ constructor( private fruitService: FruitService){
   }
 
 }
+

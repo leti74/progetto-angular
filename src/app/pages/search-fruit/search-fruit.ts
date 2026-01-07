@@ -9,6 +9,7 @@ import { MatAnchor, MatButtonModule } from "@angular/material/button";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 @Component({
   selector: 'app-search-fruit',
+  standalone: true,
   imports: [CommonModule, FormsModule, FruitList, MatAnchor, MatButtonModule, MatProgressSpinnerModule],
   templateUrl: './search-fruit.html',
   styleUrl: './search-fruit.css',
