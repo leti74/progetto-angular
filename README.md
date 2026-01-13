@@ -1,9 +1,9 @@
-# Progetto Angular - Fruity App
+# Progetto Angular - NutriFruit App
 
 ## Descrizione
 
 Questa applicazione è sviluppata con Angular 20+ e permette di visualizzare una lista di frutti, consultare i valori nutrizionali di ciascun frutto e cercare un frutto specifico tramite la barra di ricerca. L’app utilizza componenti standalone e lazy loading per ottimizzare il caricamento.  
-⚠️ Nota: le chiamate alle API FruityVice funzionano solo in locale grazie al proxy per CORS. Su Firebase Free le API non funzionano senza server intermedio o Funzioni Blaze.
+⚠️ Nota: le chiamate alle API FruityVice funzionano solo in locale grazie al proxy per CORS. Su Firebase Free le API non funzionano senza server intermedio.
 
 ## Funzionalità principali
 
@@ -21,6 +21,7 @@ Questa applicazione è sviluppata con Angular 20+ e permette di visualizzare una
 - Angular Material (componenti UI)
 - RxJS (gestione di Observable e operazioni asincrone)
 - TypeScript, HTML, CSS per frontend
+- Tailwind CSS
 
 ## **Come configurare e avviare l’app in locale**
 
@@ -48,16 +49,13 @@ Per generare nuovi componenti / moduli / servizi (scaffolding Angular CLI):
 `ng generate service nome-servizio`
 
 3. Configurare il proxy per aggirare i CORS creando un file `proxy.conf.json` nella root del progetto:
-   {
-   "/api": {
-   "target": "https://www.fruityvice.com/api",
-   "secure": true,
-   "changeOrigin": true,
-   "pathRewrite": {
-   "^/api": ""
-   }
-   }
-   }
+  {
+    "/api": {
+      "target": "https://www.fruityvice.com",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }
 
 ## Deploy su Firebase Hosting (Free plan)
 
@@ -78,19 +76,8 @@ Dopo il deploy, il link Firebase mostrerà l’app Angular. ⚠️ Nota: le API 
 
 - In locale, le chiamate API funzionano grazie al proxy (`/api/...`)
 - Su Firebase Free, le chiamate API a FruityVice non funzionano a causa dei CORS
-- Per far funzionare le API online servirebbe:
-  1. Firebase Blaze + Cloud Functions come proxy, oppure
-  2. Un server esterno gratuito (Vercel, Render, ecc.) come proxy
+                  |
 
-## Comandi utili
+## link Firebase
 
-| Comando                               | Descrizione                                    |
-| ------------------------------------- | ---------------------------------------------- |
-| `npm install`                         | Installa tutte le dipendenze del progetto      |
-| `ng serve`                            | Avvia il server di sviluppo locale (con proxy) |
-| `ng build --configuration production` | Build produzione per deploy                    |
-| `firebase deploy --only hosting`      | Deploy su Firebase Hosting                     |
-
-## link github
-
-GitHub: https://github.com/leti74/
+https://progetto-angular-a758e.web.app
