@@ -1,59 +1,96 @@
-# ProgettoAngular
+# Progetto Angular - Fruity App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+## Descrizione
 
-## Development server
+Questa applicazione è sviluppata con Angular 20+ e permette di visualizzare una lista di frutti, consultare i valori nutrizionali di ciascun frutto e cercare un frutto specifico tramite la barra di ricerca. L’app utilizza componenti standalone e lazy loading per ottimizzare il caricamento.  
+⚠️ Nota: le chiamate alle API FruityVice funzionano solo in locale grazie al proxy per CORS. Su Firebase Free le API non funzionano senza server intermedio o Funzioni Blaze.
 
-To start a local development server, run:
+## Funzionalità principali
 
-```bash
-ng serve
-```
+1. Pagina principale: mostra tutti i frutti disponibili
+2. Dettagli frutto: visualizza i valori nutrizionali di ciascun frutto
+3. Barra di ricerca: consente di filtrare i frutti per nome
+4. Frontend completo Angular con routing, lazy loading e componenti standalone
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Librerie & Tecnologie Usate
 
-## Code scaffolding
+- Angular 20.1.3 (generato con Angular CLI)
+- TypeScript
+- Angular HTTP Client (comunicazione con API)
+- Angular Router (gestione della navigazione tra pagine)
+- Angular Material (componenti UI)
+- RxJS (gestione di Observable e operazioni asincrone)
+- TypeScript, HTML, CSS per frontend
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## **Come configurare e avviare l’app in locale**
 
-```bash
-ng generate component component-name
-```
+Per eseguire il progetto localmente, segui questi passi:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+`git clone https://github.com/leti74/progetto-angular.git`
+`cd progetto-angular`
+`npm install`
+`ng serve`
 
-```bash
-ng generate --help
-```
+Apri il browser a:
 
-## Building
+http://localhost:4200/
 
-To build the project run:
+L’app si ricaricherà automaticamente ad ogni modifica del sorgente.
+GitHub
 
-```bash
-ng build
-```
+Per build di produzione:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+`ng build`
 
-## Running unit tests
+Per generare nuovi componenti / moduli / servizi (scaffolding Angular CLI):
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+`ng generate component nome-componente`
+`ng generate service nome-servizio`
 
-```bash
-ng test
-```
+3. Configurare il proxy per aggirare i CORS creando un file `proxy.conf.json` nella root del progetto:
+   {
+   "/api": {
+   "target": "https://www.fruityvice.com/api",
+   "secure": true,
+   "changeOrigin": true,
+   "pathRewrite": {
+   "^/api": ""
+   }
+   }
+   }
 
-## Running end-to-end tests
+## Deploy su Firebase Hosting (Free plan)
 
-For end-to-end (e2e) testing, run:
+1. Inizializzare Firebase nel progetto (se non già fatto):
+   firebase init
 
-```bash
-ng e2e
-```
+- Selezionare Hosting: Set up deployments for static web apps
+- Impostare la cartella pubblica su `dist/progetto-angular`
+- Configurare come Single Page App (rewrite tutte le URL a `index.html`)
+- Non configurare GitHub Action (opzionale)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+2. Effettuare il deploy:
+   firebase deploy --only hosting
 
-## Additional Resources
+Dopo il deploy, il link Firebase mostrerà l’app Angular. ⚠️ Nota: le API FruityVice non funzionano online senza server intermedio o funzioni Blaze.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Note importanti
+
+- In locale, le chiamate API funzionano grazie al proxy (`/api/...`)
+- Su Firebase Free, le chiamate API a FruityVice non funzionano a causa dei CORS
+- Per far funzionare le API online servirebbe:
+  1. Firebase Blaze + Cloud Functions come proxy, oppure
+  2. Un server esterno gratuito (Vercel, Render, ecc.) come proxy
+
+## Comandi utili
+
+| Comando                               | Descrizione                                    |
+| ------------------------------------- | ---------------------------------------------- |
+| `npm install`                         | Installa tutte le dipendenze del progetto      |
+| `ng serve`                            | Avvia il server di sviluppo locale (con proxy) |
+| `ng build --configuration production` | Build produzione per deploy                    |
+| `firebase deploy --only hosting`      | Deploy su Firebase Hosting                     |
+
+## link github
+
+GitHub: https://github.com/leti74/
